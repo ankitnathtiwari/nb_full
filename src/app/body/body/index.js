@@ -2,20 +2,20 @@ import React, { useState, useEffect } from "react";
 import { Route, Switch } from "react-router-dom";
 import { Auth } from "../auth/auth";
 import { Content } from "../content";
-export const Body = () => {
-  const [auth, setAuth] = useState(true);
-
-  const loadComponnt = (auth) => {
-    if (auth) {
-      return <Content auth={auth} />;
+export const Body = ({ globalState, globalDispatch }) => {
+  const loadComponent = (globalState, globalDispatch) => {
+    if (globalState.auth) {
+      return (
+        <Content globalState={globalState} globalDispatch={globalDispatch} />
+      );
     } else {
-      return <Auth />;
+      return <Auth globalState={globalState} globalDispatch={globalDispatch} />;
     }
   };
 
   return (
     <div>
-      <Route path='/'>{loadComponnt(auth)}</Route>
+      <Route path='/'>{loadComponent(globalState, globalDispatch)}</Route>
     </div>
   );
 };

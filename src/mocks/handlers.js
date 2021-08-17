@@ -2,10 +2,9 @@ import { rest } from "msw";
 import { posts1, posts2, posts3 } from "./data";
 import fakeimage from "./images/fakeimage.jpg";
 import regeneratorRuntime from "regenerator-runtime";
-
-const baseUrl = "http://localhost:8080/json_api";
-const authUrl = `${baseUrl}/auth`;
-const postUrl = `${baseUrl}/post`;
+import { baseUrl } from "../app/base-url";
+const authUrl = `${baseUrl}/json_api/auth`;
+const postUrl = `${baseUrl}/json_api/post`;
 
 export const handlers = [
   rest.get(`${authUrl}`, (req, res, ctx) => {
