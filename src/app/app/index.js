@@ -12,7 +12,7 @@ import { useFetch } from "./useFetch";
 export const App = () => {
   const [state, dispatch] = useReducer(reducer, initState);
   useFetch(state, dispatch);
-
+  console.log("app state", state);
   return (
     <BrowserRouter>
       <div>

@@ -5,7 +5,7 @@ import { Content } from "../content";
 
 export const Body = ({ globalState, globalDispatch }) => {
   const loadComponent = (globalState, globalDispatch) => {
-    if (globalState.auth) {
+    if (globalState.user.auth) {
       return (
         <Content globalState={globalState} globalDispatch={globalDispatch} />
       );

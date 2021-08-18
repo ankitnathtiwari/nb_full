@@ -6,7 +6,8 @@ import { useFetch } from "./useFetch";
 
 export const Login = ({ globalState, globalDispatch }) => {
   const [state, dispatch] = useReducer(reducer, initState);
-  console.log(state);
+  useFetch(state, dispatch, globalDispatch);
+  console.log(state, "login called");
   return (
     <div>
       <h2>Login </h2>
@@ -15,6 +16,7 @@ export const Login = ({ globalState, globalDispatch }) => {
         dispatch={dispatch}
         globalDispatch={globalDispatch}
       />
+      <p>{state.message}</p>
     </div>
   );
 };

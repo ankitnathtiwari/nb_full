@@ -1,3 +1,5 @@
+import { baseUrl } from "../../../base-url";
+
 const formItems = [
   { type: "INPUT", id: "input1", value: "", placeholder: "username" },
   { type: "INPUT", id: "input2", value: "", placeholder: "password" },
@@ -10,6 +12,7 @@ const formItems = [
 ];
 
 export const initState = {
+  url: `${baseUrl}/json_api/auth/login`,
   method: "POST",
   loading: false,
   err: false,
