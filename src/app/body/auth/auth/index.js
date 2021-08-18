@@ -5,18 +5,21 @@ import { PasswordChange } from "../password-change";
 import { PasswordForgot } from "../password-forgot";
 import { Register } from "../register";
 
-export const Auth = () => {
+export const Auth = ({ globalState, globalDispatch }) => {
   return (
     <div>
       <Switch>
         <Route path={`/login`}>
-          <Login />
+          <Login globalState={globalState} globalDispatch={globalDispatch} />
         </Route>
         <Route path={`/register`}>
           <Register />
         </Route>
         <Route path={`/password_change`}>
-          <PasswordChange />
+          <PasswordChange
+            globalState={globalState}
+            globalDispatch={globalDispatch}
+          />
         </Route>
         <Route path={`/password_forgot`}>
           <PasswordForgot />

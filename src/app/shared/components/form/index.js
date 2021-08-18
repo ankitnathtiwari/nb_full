@@ -5,7 +5,7 @@ import { Select } from "../select/index";
 import { Textarea } from "../textarea/index";
 import { UploadInput } from "../upload-img/index";
 
-export const Form = ({ formItems, dispatch }) => {
+export const Form = ({ formItems, dispatch, globalDispatch }) => {
   //map through the form itms and based on their type return element
   const forms = (item, dispatch) => {
     switch (item.type) {
@@ -17,9 +17,19 @@ export const Form = ({ formItems, dispatch }) => {
         return <Select key={item.id} item={item} dispatch={dispatch} />;
       case "BUTTON":
         return (
-          <div>
-            <button key={item.id}>button</button>
-          </div>
+          <Button
+            key={item.id}
+            onClick={() =>
+              dispatch({
+                type: "BUTTON_CLICKED",
+                payload: {
+                  current_item: item,
+                  formItems: formItems,
+                },
+              })
+            }>
+            {item.value}
+          </Button>
         );
       default:
         null;
