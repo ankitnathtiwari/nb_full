@@ -1,27 +1,28 @@
 import axios from "axios";
 import { useEffect } from "react";
 
-const postData = (url, sendData, dispatch) => {
-  console.log(sendData);
-  axios
-    .post(url, sendData)
+const postData = (state, dispatch, globalDispatch) => {
+  axios({
+    method: "post",
+    url: state.url,
+    data: state.payloadData,
+    withCredentials: true,
+  })
     .then((res) => {
-      res.data.mailSentStatus
-        ? dispatch({ type: "fetchCompleted", payload: res.data })
+      res.data.auth
+        ? dispatch({ type: "EMAIL_SUCCESSFUL", payload: res.data })
         : dispatch({ type: "INVALID_CRED", payload: res.data });
     })
     .catch((err) => {
-      dispatch({ type: "err" });
+      dispatch({ type: "ERR" });
     });
 };
 
-export const useFetch = (state, dispatch) => {
+export const useFetch = (state, dispatch, globalDispatch) => {
   useEffect(() => {
     if (state.loading) {
-      postData(state.url, state.sendData, dispatch);
+      postData(state, dispatch, globalDispatch);
     }
-    return () => {
-      console.log("cleanup post create");
-    };
+    return () => {};
   }, [state.loading]);
 };
