@@ -1,5 +1,10 @@
-import { fetchCompleted } from "./fetch_completed";
-import { handleSubmit } from "./handle_submit";
 import { errHandler } from "./handle_err";
-
-export default { fetchCompleted, handleSubmit, errHandler };
+import { clickHandler } from "./clickHandler";
+import { handleInvalidCredentials } from "./handle_invalid_credentials.js";
+import { handleSuccessfullRegisteration } from "./handle_successful_registeration";
+export {
+  errHandler,
+  clickHandler,
+  handleInvalidCredentials,
+  handleSuccessfullRegisteration,
+};
