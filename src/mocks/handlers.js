@@ -1,6 +1,6 @@
 import { rest } from "msw";
-import { posts1, posts2, posts3 } from "./data";
-import fakeimage from "./images/fakeimage.jpg";
+import { posts1 } from "./database/post/index";
+import fakeimage from "./database/images/fakeimage.jpg";
 import regeneratorRuntime from "regenerator-runtime";
 import { baseUrl } from "../app/base-url";
 const authUrl = `${baseUrl}/json_api/auth`;
@@ -8,7 +8,7 @@ const postUrl = `${baseUrl}/json_api/post`;
 
 export const handlers = [
   rest.get(`${authUrl}`, (req, res, ctx) => {
-    return res(ctx.json({ auth: false, user: "" }));
+    return res(ctx.json({ auth: true, user: "User" }));
   }),
 
   rest.post(`${authUrl}/login`, (req, res, ctx) => {
@@ -23,28 +23,30 @@ export const handlers = [
     return res(ctx.json({ auth: true, user: "User" }));
   }),
 
-  rest.get(`${postUrl}/allpost`, (req, res, ctx) => {
-    if (req.url.searchParams.get("page") == 1) {
-      return res(ctx.json(posts1));
-    }
-    if (req.url.searchParams.get("page") == 2) {
-      return res(ctx.json(posts2));
-    }
-    if (req.url.searchParams.get("page") == 3) {
-      return res(ctx.json(posts3));
-    }
-    return res(ctx.json([]));
+  rest.get(`${postUrl}/home`, (req, res, ctx) => {
+    return res(ctx.json({ status: true, postList: posts1 }));
+    // if (req.url.searchParams.get("page") == 1) {
+    //   return res(ctx.json(posts1));
+    // }
+    // if (req.url.searchParams.get("page") == 2) {
+    //   return res(ctx.json(posts2));
+    // }
+    // if (req.url.searchParams.get("page") == 3) {
+    //   return res(ctx.json(posts3));
+    // }
+    // return res(ctx.json([]));
   }),
+
   rest.get(`${postUrl}/mypost`, (req, res, ctx) => {
-    if (req.url.searchParams.get("page") == 1) {
-      return res(ctx.json(posts1));
-    }
-    if (req.url.searchParams.get("page") == 2) {
-      return res(ctx.json(posts2));
-    }
-    if (req.url.searchParams.get("page") == 3) {
-      return res(ctx.json(posts3));
-    }
+    // if (req.url.searchParams.get("page") == 1) {
+    //   return res(ctx.json(posts1));
+    // }
+    // if (req.url.searchParams.get("page") == 2) {
+    //   return res(ctx.json(posts2));
+    // }
+    // if (req.url.searchParams.get("page") == 3) {
+    //   return res(ctx.json(posts3));
+    // }
     return res(ctx.json([]));
   }),
   rest.post(`${postUrl}/create`, (req, res, ctx) => {

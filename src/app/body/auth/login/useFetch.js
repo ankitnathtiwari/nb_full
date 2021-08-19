@@ -18,6 +18,20 @@ const postData = (state, dispatch, globalDispatch) => {
     });
 };
 
+const getData = (state, dispatch) => {
+  axios({
+    method: "get",
+    url: state.url,
+    withCredentials: true,
+  })
+    .then((res) => {
+      dispatch({ type: "FETCH_COMPLETED", payload: res.data });
+    })
+    .catch((err) => {
+      dispatch({ type: "ERR" });
+    });
+};
+
 export const useFetch = (state, dispatch, globalDispatch) => {
   useEffect(() => {
     if (state.loading) {

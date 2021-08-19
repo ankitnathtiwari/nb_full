@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-export const PostLikeBar = () => {
+export const PostLikeBar = ({ postListDispatch }) => {
   return (
     <div>
       <button>Like</button>

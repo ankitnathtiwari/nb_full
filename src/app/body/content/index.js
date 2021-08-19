@@ -12,7 +12,7 @@ import { Create } from "../body-components/create";
 import { ConnectionProfile } from "../body-components/connection-profile";
 import { HotTopics } from "../body-components/hot-topics";
 
-export const Content = ({ auth }) => {
+export const Content = ({ globalState, globalDispatch }) => {
   return (
     <div>
       <Switch>
@@ -44,7 +44,7 @@ export const Content = ({ auth }) => {
           <Home />
         </Route>
         <Route path='/'>
-          <Redirect to={auth ? "/home" : "/login"} />
+          <Redirect to={globalState.user.auth ? "/home" : "/login"} />
         </Route>
       </Switch>
     </div>

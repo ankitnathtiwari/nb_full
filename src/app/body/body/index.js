@@ -4,6 +4,10 @@ import { Auth } from "../auth/auth";
 import { Content } from "../content";
 
 export const Body = ({ globalState, globalDispatch }) => {
+  if (globalState.initLoading) {
+    return <h1>Loading....</h1>;
+  }
+
   const loadComponent = (globalState, globalDispatch) => {
     if (globalState.user.auth) {
       return (
