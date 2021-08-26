@@ -7,5 +7,8 @@ export const initState = {
   initLoading: true,
   err: false,
   message: "",
+  navbar: { top: "0px" },
+  topNav: { showSideBar: false },
+  topSlideBar: { topic_value: "", showTopic: true },
   payloadData: {},
 };

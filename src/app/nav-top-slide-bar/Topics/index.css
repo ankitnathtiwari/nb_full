@@ -1,0 +1,8 @@
+select {
+  background-image: none;
+  padding: 5px;
+  width: 70px;
+  background-color: rgb(216, 216, 216);
+  border: none;
+  position: relative;
+}

@@ -16,14 +16,10 @@ export const App = () => {
   return (
     <BrowserRouter>
       <div>
-        <div className='top-nav'>
-          <NavTopBar globalState={state} globalDispatch={dispatch} />
-          <NavTopSlideBar globalState={state} globalDispatch={dispatch} />
-        </div>
+        <NavTopBar globalState={state} globalDispatch={dispatch} />
+        <NavTopSlideBar globalState={state} globalDispatch={dispatch} />
         <Body globalState={state} globalDispatch={dispatch} />
-        <div className='nav-bottom-slide-bar'>
-          <NavBottomSlideBar globalState={state} globalDispatch={dispatch} />
-        </div>
+        <NavBottomSlideBar globalState={state} globalDispatch={dispatch} />
       </div>
     </BrowserRouter>
   );

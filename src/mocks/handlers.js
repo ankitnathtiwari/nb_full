@@ -1,8 +1,11 @@
 import { rest } from "msw";
 import { posts1 } from "./database/post/index";
+
 import fakeimage from "./database/images/fakeimage.jpg";
 import regeneratorRuntime from "regenerator-runtime";
 import { baseUrl } from "../app/base-url";
+import { user1, user2 } from "./database/user";
+import { followerList } from "./database/followers";
 const authUrl = `${baseUrl}/json_api/auth`;
 const postUrl = `${baseUrl}/json_api/post`;
 
@@ -48,6 +51,22 @@ export const handlers = [
     //   return res(ctx.json(posts3));
     // }
     return res(ctx.json([]));
+  }),
+  rest.post(`${postUrl}/like`, (req, res, ctx) => {
+    return res(ctx.json({ status: true, message: "post created" }));
+  }),
+  rest.post(`${postUrl}/follow`, (req, res, ctx) => {
+    return res(ctx.json({ status: true, message: "post created" }));
+  }),
+  rest.post(`${baseUrl}/json_api/profile`, (req, res, ctx) => {
+    return res(ctx.json({ status: true, profile: user1 }));
+  }),
+  rest.get(`${baseUrl}/json_api/profile/followers`, (req, res, ctx) => {
+    return res(ctx.json({ status: true, followers: followerList }));
+  }),
+
+  rest.get(`${baseUrl}/json_api/profile/followings`, (req, res, ctx) => {
+    return res(ctx.json({ status: true, followers: followerList }));
   }),
   rest.post(`${postUrl}/create`, (req, res, ctx) => {
     return res(ctx.json({ postCreated: true, message: "post created" }));

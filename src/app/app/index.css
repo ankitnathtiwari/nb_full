@@ -1,6 +1,8 @@
-.top-nav {
-  background-color: rgb(133, 127, 127);
+* {
+  margin: 0;
+  padding: 0;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 }
-.nav-bottom-slide-bar {
-  background-color: rgb(155, 151, 151);
+a {
+  text-decoration: none;
 }

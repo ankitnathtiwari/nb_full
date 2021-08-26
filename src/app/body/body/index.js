@@ -19,7 +19,8 @@ export const Body = ({ globalState, globalDispatch }) => {
   };
 
   return (
-    <div>
+    <div
+      onClick={() => globalDispatch({ type: "TOP_SIDE_BAR", payload: false })}>
       <Route path='/'>{loadComponent(globalState, globalDispatch)}</Route>
     </div>
   );

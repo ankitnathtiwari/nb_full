@@ -1,11 +1,14 @@
 import React, { useState, useEffect } from "react";
 import { Post } from "../post";
-
-export const PostList = ({ postListState, postListDispatch }) => {
-  console.log(postListState.postList, "Post-List");
-
+import "./index.css";
+export const PostList = ({
+  globalState,
+  globalDispatch,
+  postListState,
+  postListDispatch,
+}) => {
   return (
-    <div>
+    <div className='post-list'>
       {postListState.postList.map((post) => {
         return (
           <Post

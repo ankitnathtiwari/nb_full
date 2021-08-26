@@ -1,5 +1,5 @@
 import axios from "axios";
-import { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 
 const postData = (state, dispatch) => {
   axios({
@@ -23,6 +23,8 @@ export const useFetch = (state, dispatch) => {
     if (state.loading || state.initLoading) {
       postData(state, dispatch);
     }
-    return () => {};
+    return () => {
+      console.log("home component unmounted");
+    };
   }, [state.loading]);
 };

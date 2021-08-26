@@ -41,7 +41,7 @@ export const Content = ({ globalState, globalDispatch }) => {
           <ConnectionProfile />
         </Route>
         <Route path='/home'>
-          <Home />
+          <Home globalState={globalState} globalDispatch={globalDispatch} />
         </Route>
         <Route path='/'>
           <Redirect to={globalState.user.auth ? "/home" : "/login"} />

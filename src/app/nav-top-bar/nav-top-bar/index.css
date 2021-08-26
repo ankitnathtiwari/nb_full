@@ -1,0 +1,22 @@
+.nav-top {
+  position: relative;
+  z-index: 2;
+  top: 0px;
+  position: fixed;
+  display: flex;
+  width: 100vw;
+  height: 50px;
+  background-color: #000;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.25);
+  transition: top 0.4s;
+}
+.nav-top h2 {
+  font-size: 18px;
+  color: #fefefe;
+  margin-left: 20px;
+}
+.nav-top-sidebar-icon {
+  margin-right: 20px;
+}
