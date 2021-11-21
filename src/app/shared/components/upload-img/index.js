@@ -3,7 +3,7 @@ import "./index.css";
 export const UploadInput = ({ item, dispatch }) => {
   return (
     <div className='upload'>
-      <label htmlFor='upload'>Upload </label>
+      <label htmlFor='upload'>{item.name} </label>
       <input
         id='upload'
         type='file'

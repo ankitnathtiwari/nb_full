@@ -1,0 +1,35 @@
+.follow-user-profile {
+  display: flex;
+  background-color: #fefefe;
+  padding: 20px;
+  margin-bottom: 5px;
+}
+
+.follow-user-profile-img img {
+  width: 40px;
+  height: 40px;
+  border-radius: 35px;
+}
+
+.follow-user-profile-content {
+  margin-left: 10px;
+}
+.follow-user-profile-content a {
+  font-weight: bold;
+  opacity: 0.9;
+}
+.follow-user-profile-followers {
+  font-size: 12px;
+  opacity: 0.7;
+}
+.follow-user-profile-bio {
+  font-size: 14px;
+}
+
+.follow-user-profile-button button {
+  background-color: rgb(228, 226, 226);
+  border: none;
+  padding: 5px;
+  font-weight: bold;
+  opacity: 0.8;
+}

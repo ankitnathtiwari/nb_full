@@ -1,5 +1,6 @@
 import axios from "axios";
 import { useEffect } from "react";
+import { useParams } from "react-router";
 
 const postData = (state, dispatch, globalDispatch) => {
   // We should perform get request here
@@ -27,10 +28,12 @@ const postData = (state, dispatch, globalDispatch) => {
     });
 };
 
-const getData = (state, dispatch) => {
+const getData = (state, dispatch, params) => {
+  //dispatch here to set loading true
+
   axios({
     method: "get",
-    url: state.url,
+    url: `${state.url}?id=${params.id}`,
     withCredentials: true,
   })
     .then((res) => {
@@ -46,15 +49,9 @@ const getData = (state, dispatch) => {
 };
 
 export const useFetch = (state, dispatch, globalDispatch) => {
+  const params = useParams();
   useEffect(() => {
-    if (state.loading || state.initLoading) {
-      console.log("init loading called use fetch");
-      if (state.initLoading) {
-        getData(state, dispatch);
-      } else {
-        postData(state, dispatch, globalDispatch);
-      }
-    }
+    getData(state, dispatch, params);
     return () => {};
-  }, [state.loading]);
+  }, [params.id]);
 };

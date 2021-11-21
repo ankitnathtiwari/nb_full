@@ -1,0 +1,32 @@
+.search-location {
+  background-color: rgb(81, 81, 81);
+  width: 70vw;
+  padding: 10px;
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2);
+  border-radius: 5px;
+  min-height: 40vh;
+}
+.search-location input {
+  width: 65vw;
+  height: 35px;
+  margin: 5px;
+}
+
+.search-location-list {
+  background-color: #fefefe;
+  padding: 10px;
+  margin: 5px;
+}
+.search-location-list li {
+  list-style: none;
+  border-bottom: 1px solid rgb(214, 213, 213);
+  padding: 10px;
+}
+.search-location button {
+  margin: 5px;
+  width: 90%;
+  background-color: #fefefe;
+  color: #000;
+  outline: none;
+  border: none;
+}

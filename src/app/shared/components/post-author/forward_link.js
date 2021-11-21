@@ -1,7 +1,8 @@
-export const forwardLink = (post) => {
+export const forwardLink = (props) => {
+  //if user is current user the return my profile
+  // else return pathname to
   return {
-    pathname: "/connection_profile",
-    search: `?id=${post.author.id}`,
-    state: { profile: post.author, myProfile: false },
+    pathname: `/profile/${props.post.author.id}`,
+    state: { profile: props.post.author },
   };
 };

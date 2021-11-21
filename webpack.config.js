@@ -4,6 +4,12 @@ module.exports = {
   //entry point
   //output
   //mode
+
+  output: {
+    path: path.join(__dirname, "public", "dist"),
+    filename: "bundle.js",
+    publicPath: "/",
+  },
   mode: "development",
   //loaders
   module: {

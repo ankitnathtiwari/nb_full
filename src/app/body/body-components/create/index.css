@@ -1,0 +1,29 @@
+.create {
+  margin-top: 100px;
+  margin-left: 5vw;
+  position: relative;
+}
+
+.create-form input {
+  outline: 0px;
+  height: 25px;
+  width: 80vw;
+  margin: 5px;
+  padding: 5px;
+  border: none;
+  border-bottom: 1px solid rgb(231, 230, 230);
+}
+
+.create-textarea {
+  margin: 5px;
+  padding: 5px;
+  border: none;
+  width: 80vw;
+  outline: 0px;
+}
+.create-location {
+  position: absolute;
+  z-index: 1;
+  left: 20px;
+  top: 20px;
+}

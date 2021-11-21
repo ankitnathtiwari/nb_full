@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Button } from "../button";
+import { IconButton } from "../icon-button";
 import { Input } from "../input/index";
 import { Select } from "../select/index";
 import { Textarea } from "../textarea/index";
@@ -13,18 +14,36 @@ export const Form = ({ formItems, dispatch, globalDispatch }) => {
         return <Input key={item.id} item={item} dispatch={dispatch} />;
       case "TEXTAREA":
         return <Textarea key={item.id} item={item} dispatch={dispatch} />;
+      case "UPLOAD_IMAGE":
+        return <UploadInput key={item.id} item={item} dispatch={dispatch} />;
       case "SELECT":
         return <Select key={item.id} item={item} dispatch={dispatch} />;
-      case "BUTTON":
+      case "ICON_BUTTON":
         return (
-          <Button
+          <IconButton
+            item={item}
             key={item.id}
             onClick={() =>
               dispatch({
                 type: "BUTTON_CLICKED",
                 payload: {
-                  current_item: item,
-                  formItems: formItems,
+                  id: item.id,
+                },
+              })
+            }>
+            {item.value}
+          </IconButton>
+        );
+      case "BUTTON":
+        return (
+          <Button
+            item={item}
+            key={item.id}
+            onClick={() =>
+              dispatch({
+                type: "BUTTON_CLICKED",
+                payload: {
+                  id: item.id,
                 },
               })
             }>

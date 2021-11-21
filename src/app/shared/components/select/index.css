@@ -1,6 +1,13 @@
 .select {
-  height: 35px;
-  width: 220px;
+  width: 80vw;
+  border: none;
+  border-bottom: 1px solid rgb(201, 199, 199);
   margin: 5px;
   padding: 5px;
+  background-color: rgb(231, 231, 231);
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  outline: none;
+}
+.select option {
+  background-color: #fefefe;
 }

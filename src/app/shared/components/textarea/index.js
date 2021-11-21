@@ -4,6 +4,7 @@ export const Textarea = ({ item, dispatch }) => {
   return (
     <textarea
       value={item.value}
+      className={item.className ? item.className : "textarea"}
       onChange={(e) =>
         dispatch({
           type: `FORM_CHANGE`,
@@ -16,7 +17,6 @@ export const Textarea = ({ item, dispatch }) => {
       }
       placeholder={item.placeholder}
       rows='10'
-      cols='50'
-      className='textarea'></textarea>
+      cols='50'></textarea>
   );
 };

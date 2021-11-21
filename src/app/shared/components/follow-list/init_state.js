@@ -1,15 +1,13 @@
 import { baseUrl } from "../../../base-url";
 
-export const initState = (props) => {
-  return {
-    url: `${baseUrl}/json_api/profile${props.path}`,
-    profile_id: props.userId,
-    method: "POST",
-    loading: false,
-    initLoading: true,
-    err: false,
-    message: "",
-    followList: [],
-    payloadData: {},
-  };
+export const initState = {
+  url: `${baseUrl}/json_api/user/followers`,
+  user: {},
+  method: "get",
+  loading: false,
+  initLoading: false,
+  err: false,
+  message: "",
+  followList: [],
+  payloadData: {},
 };

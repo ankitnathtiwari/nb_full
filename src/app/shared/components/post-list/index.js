@@ -12,6 +12,7 @@ export const PostList = ({
       {postListState.postList.map((post) => {
         return (
           <Post
+            globalState={globalState}
             key={post._id}
             post={post}
             postListDispatch={postListDispatch}

@@ -11,7 +11,7 @@ const postUrl = `${baseUrl}/json_api/post`;
 
 export const handlers = [
   rest.get(`${authUrl}`, (req, res, ctx) => {
-    return res(ctx.json({ auth: true, user: "User" }));
+    return res(ctx.json({ auth: true, user: user2 }));
   }),
 
   rest.post(`${authUrl}/login`, (req, res, ctx) => {
@@ -58,10 +58,22 @@ export const handlers = [
   rest.post(`${postUrl}/follow`, (req, res, ctx) => {
     return res(ctx.json({ status: true, message: "post created" }));
   }),
-  rest.post(`${baseUrl}/json_api/profile`, (req, res, ctx) => {
+  rest.get(`${baseUrl}/json_api/user/profile`, (req, res, ctx) => {
+    if (req.url.searchParams.get("id") == "user1") {
+      return res(ctx.json(user1));
+    }
+    if (req.url.searchParams.get("id") == "user2") {
+      return res(ctx.json(user2));
+    }
+    // if (req.url.searchParams.get("page") == 3) {
+    //   return res(ctx.json(posts3));
+    // }
+    // return res(ctx.json([]));
     return res(ctx.json({ status: true, profile: user1 }));
   }),
-  rest.get(`${baseUrl}/json_api/profile/followers`, (req, res, ctx) => {
+
+  rest.get(`${baseUrl}/json_api/user/followers`, (req, res, ctx) => {
+    console.log("api hit");
     return res(ctx.json({ status: true, followers: followerList }));
   }),
 
@@ -69,7 +81,7 @@ export const handlers = [
     return res(ctx.json({ status: true, followers: followerList }));
   }),
   rest.post(`${postUrl}/create`, (req, res, ctx) => {
-    return res(ctx.json({ postCreated: true, message: "post created" }));
+    return res(ctx.json({ status: true, message: "Post Created" }));
   }),
 
   rest.get(`${authUrl}/logout`, (req, res, ctx) => {

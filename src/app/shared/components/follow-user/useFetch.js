@@ -12,10 +12,6 @@ const postData = (state, dispatch, globalDispatch) => {
       console.log("");
       if (res.data.status) {
         return dispatch({ type: "FETCH_COMPLETED", payload: res.data });
-        // globalDispatch({
-        //   type: "FOLLOWING",
-        //   payload: { post_id: state.post_id },
-        // });
       } else {
         dispatch({ type: "ERR", payload: res.data });
       }

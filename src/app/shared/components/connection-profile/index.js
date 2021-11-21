@@ -4,9 +4,10 @@ import { initState } from "./init_state";
 import { reducer } from "./reducer";
 import { useFetch } from "./useFetch";
 
-export const Profile = ({ profile }) => {
+export const ConnectionProfile = ({ profile }) => {
   const query = new URLSearchParams(useLocation().search);
 
+  console.log(profile, "profile page");
   const [state, dispatch] = useReducer(
     reducer,
     { basicProfile: profile, profile_id: query.get("id") },

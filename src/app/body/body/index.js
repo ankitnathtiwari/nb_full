@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { Route, Switch } from "react-router-dom";
 import { Auth } from "../auth/auth";
-import { Content } from "../content";
+import { Content } from "../content/";
+import { TestContent } from "../testContent/test-content";
 
 export const Body = ({ globalState, globalDispatch }) => {
   if (globalState.initLoading) {
@@ -21,7 +22,7 @@ export const Body = ({ globalState, globalDispatch }) => {
   return (
     <div
       onClick={() => globalDispatch({ type: "TOP_SIDE_BAR", payload: false })}>
-      <Route path='/'>{loadComponent(globalState, globalDispatch)}</Route>
+      {loadComponent(globalState, globalDispatch)}
     </div>
   );
 };

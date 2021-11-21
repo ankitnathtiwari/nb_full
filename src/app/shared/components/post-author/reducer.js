@@ -3,6 +3,7 @@ import {
   handleInvalidCredentials,
   errHandler,
   fetchCompleted,
+  handleDelete,
 } from "./event-handlers";
 
 export const reducer = (state, action) => {
@@ -11,6 +12,8 @@ export const reducer = (state, action) => {
       return fetchCompleted(state, action);
     case "FOLLOW_CLICKED":
       return handleLike(state, action);
+    case "DELETE_CLICKED":
+      return handleDelete(state, action);
     case "INVALID_CRED":
       return handleInvalidCredentials(state, action);
     case "ERR":

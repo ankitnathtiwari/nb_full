@@ -24,7 +24,7 @@ export const useFetch = (state, dispatch) => {
       postData(state, dispatch);
     }
     return () => {
-      console.log("home component unmounted");
+      console.log("use fetch component unmounted");
     };
   }, [state.loading]);
 };

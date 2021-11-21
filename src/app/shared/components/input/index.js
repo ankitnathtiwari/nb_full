@@ -5,7 +5,7 @@ export const Input = ({ item, dispatch }) => {
   return (
     <div>
       <input
-        className='input'
+        className={item.className ? item.className : "input"}
         value={item.value}
         onChange={(e) =>
           dispatch({
